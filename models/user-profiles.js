@@ -1,331 +1,322 @@
-var Sequelize = require("sequelize");
+const Sequelize = require("sequelize");
+const sequelize = require("../config/connection.js");
+
+const UserProfiles = sequelize.define('UserProfiles',{
+    userName: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+
+    firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        // validate: {
+        //     len:
+        // }
+
+    },
+    lastName: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        default: 'Gardener'
+
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        default: 'none'
+    },
+    location: {
+        type: Sequelize.STRING,
+        allowNull: false
+
+    },
+    gender:{
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    geocode: {
+        type: Sequelize.STRING
+
+    },
+    password: {
+        type: Sequelize.STRING,
+        allowNull: false
+
+    },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: true
+        
+
+    },
+    avatar:{
+        type: Sequelize.STRING,
+        allowNull: true,
+        defaultValue: 'flower'
 
 
-var db = require('./index');
+    },
+    intro: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+        defaultValue: 'an empty plot...'
 
-var    sequelize = db.sequelize;
-       Sequelize = db.Sequelize;
+    },
+    hasGarden: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
 
-    console.log
+    },
+    availableTime: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 5
 
-module.exports = function(sequelize, DataTypes){
-    const UserProfiles = sequelize.define('UserProfiles',{
-        userName: {
-        type: sequelize.STRING,
-            allowNull: false
-        },
+    },
+    organic: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        firstName: {
-            type: sequelize.STRING,
-            allowNull: false,
-            // validate: {
-            //     len:
-            // }
+    },
+    flowers:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        lastName: {
-            type: sequelize.STRING,
-            allowNull: true,
-            default: 'Gardener'
+    },
+    tomatoes:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        email: {
-            type: sequelize.STRING,
-            allowNull: true,
-            default: 'none'
-        },
-        location: {
-            type: sequelize.STRING,
-            allowNull: false
+    },
+    cucumbers:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        gender:{
-            type: sequelize.STRING,
-            allowNull: true
-        },
-        geocode: {
-            type: sequelize.STRING
+    },
+    sweetPeppers: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        password: {
-            type: sequelize.STRING,
-            allowNull: false
+    },
+    beans:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        image: {
-            type: sequelize.STRING,
-            allowNull: true
-            
+    },
+    peas: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        avatar:{
-            type: sequelize.STRING,
-            allowNull: true,
-            defaultValue: 'flower'
+    },
+    carrots: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
+    },
+    squash:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        intro: {
-            type: sequelize.TEXT,
-            allowNull: true,
-            defaultValue: 'an empty plot...'
+    },
+    lettuce:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        hasGarden: {
-            type: sequelize.BOOLEAN,
-            allowNull: false,
-            defaultValue: false
+    },
+    watermelon:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        availableTime: {
-            type: sequelize.INTEGER,
-            allowNull: false,
-            defaultValue: 5
+    },
+    onion:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        organic: {
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    sweetCorn:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        flowers:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    cabbage:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        tomatoes:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    potatoes:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        cucumbers:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    radishes:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        sweetPeppers: {
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    mint:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        beans:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    basil:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        peas: {
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    cilantro:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        carrots: {
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    beets:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        squash:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    zucchini:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        lettuce:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    broccoli:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        watermelon:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    other:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
 
-        },
-        onion:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+    },
+    theme:{
+        //this detects whether we are going on the forest or the flower theme. The default is false as the assumption is that the flower is our default and changing that is 'picking a new theme'
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    }
 
-        },
-        sweetCorn:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
+},{
+    freezeTableName: true
+});
+UserProfiles.sync().then(()=>{
+    UserProfiles.create({
+        userName: 'bobpaulson',
+        firstName:'robert',
+        lastName: 'paulson',
+        gender: 'male',
+        email: 'rpaulson@gmail.com',
+        location: 'durham',
+        geocode: '23-58-23-192',
+        password: 'we need to hash this',
+        image: 'yay images',
+        avatar: 'potato',
+        intro: 'I like to eat potatoes',
+        hasGarden: true,
+        availableTime: 5,
+        organic: false,
+        flowers: false,
+        tomatoes: false,
+        cucumbers: false,
+        sweetPeppers: false,
+        beans: false,
+        peas: false,
+        carrots: false,
+        squash: false,
+        lettuce: false,
+        watermelon: false,
+        onion: false,
+        sweetCorn: false,
+        cabbage: false,
+        potatoes: true,
+        radishes: false,
+        mint: false,
+        basil: false,
+        cilantro: false,
+        beets: false,
+        zucchini: false,
+        broccoli: false,
+        other: false,
+        theme: true
+    })
+    UserProfiles.create({
+        userName: 'whalegurl',
+        firstName:'marge',
+        lastName: 'beluga',
+        gender: 'female',
+        email: 'beluga@gmail.com',
+        location: 'raleigh',
+        geocode: '23-57-23-192',
+        password: 'we need to hash this too',
+        image: 'yay images',
+        avatar: 'not a potato',
+        intro: 'I dont  like to eat potatoes',
+        hasGarden: true,
+        availableTime: 5,
+        organic: true,
+        flowers: true,
+        tomatoes: true,
+        cucumbers: true,
+        sweetPeppers: true,
+        beans: true,
+        peas: true,
+        carrots: true,
+        squash: true,
+        lettuce: true,
+        watermelon: true,
+        onion: true,
+        sweetCorn: true,
+        cabbage: true,
+        potatoes: false,
+        radishes: true,
+        mint: true,
+        basil: true,
+        cilantro: true,
+        beets: true,
+        zucchini: true,
+        broccoli: true,
+        other: true,
+        theme: false
+    })
+    UserProfiles.create({
+        userName: 'strangerdanger',
+        firstName:'random',
+        lastName: 'stranger',
+        gender: 'non-binary',
+        email: 'ihadbugsforlunch@gmail.com',
+        location: 'chapel hill',
+        geocode: '23-57-23-192',
+        password: 'we need to hash this too too',
+        image: 'yay images',
+        avatar: 'not a potato',
+        intro: 'I dont  like to eat potatoes',
+        hasGarden: true,
+        availableTime: 5,
+        organic: false,
+        flowers: true,
+        tomatoes: true,
+        cucumbers: true,
+        sweetPeppers: true,
+        beans: true,
+        peas: true,
+        carrots: true,
+        squash: true,
+        lettuce: true,
+        watermelon: true,
+        onion: true,
+        sweetCorn: true,
+        cabbage: true,
+        potatoes: false,
+        radishes: true,
+        mint: false,
+        basil: true,
+        cilantro: true,
+        beets: true,
+        zucchini: true,
+        broccoli: true,
+        other: true,
+        theme: true
+    })
+});
 
-        },
-        cabbage:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        potatoes:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        radishes:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        mint:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        basil:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        cilantro:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        beets:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        zucchini:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        broccoli:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        other:{
-            type: sequelize.BOOLEAN,
-            defaultValue: true
-
-        },
-        theme:{
-            //this detects whether we are going on the forest or the flower theme. The default is false as the assumption is that the flower is our default and changing that is 'picking a new theme'
-            type: sequelize.BOOLEAN,
-            defaultValue: false
-        }
-
-    },{
-        freezeTableName: true
-    });
-    UserProfiles.sync().then(()=>{
-        UserProfiles.create({
-            userName: 'bobpaulson',
-            firstName:'robert',
-            lastName: 'paulson',
-            gender: 'male',
-            email: 'rpaulson@gmail.com',
-            location: 'durham',
-            geocode: '23-58-23-192',
-            password: 'we need to hash this',
-            image: 'yay images',
-            avatar: 'potato',
-            intro: 'I like to eat potatoes',
-            hasGarden: true,
-            availableTime: 5,
-            organic: false,
-            flowers: false,
-            tomatoes: false,
-            cucumbers: false,
-            sweetPeppers: false,
-            beans: false,
-            peas: false,
-            carrots: false,
-            squash: false,
-            lettuce: false,
-            watermelon: false,
-            onion: false,
-            sweetCorn: false,
-            cabbage: false,
-            potatoes: true,
-            radishes: false,
-            mint: false,
-            basil: false,
-            cilantro: false,
-            beets: false,
-            zucchini: false,
-            broccoli: false,
-            other: false,
-            theme: true
-        })
-        UserProfiles.create({
-            userName: 'whalegurl',
-            firstName:'marge',
-            lastName: 'beluga',
-            gender: 'female',
-            email: 'beluga@gmail.com',
-            location: 'raleigh',
-            geocode: '23-57-23-192',
-            password: 'we need to hash this too',
-            image: 'yay images',
-            avatar: 'not a potato',
-            intro: 'I dont  like to eat potatoes',
-            hasGarden: true,
-            availableTime: 5,
-            organic: true,
-            flowers: true,
-            tomatoes: true,
-            cucumbers: true,
-            sweetPeppers: true,
-            beans: true,
-            peas: true,
-            carrots: true,
-            squash: true,
-            lettuce: true,
-            watermelon: true,
-            onion: true,
-            sweetCorn: true,
-            cabbage: true,
-            potatoes: false,
-            radishes: true,
-            mint: true,
-            basil: true,
-            cilantro: true,
-            beets: true,
-            zucchini: true,
-            broccoli: true,
-            other: true,
-            theme: false
-        })
-        UserProfiles.create({
-            userName: 'strangerdanger',
-            firstName:'random',
-            lastName: 'stranger',
-            gender: 'non-binary',
-            email: 'ihadbugsforlunch@gmail.com',
-            location: 'chapel hill',
-            geocode: '23-57-23-192',
-            password: 'we need to hash this too too',
-            image: 'yay images',
-            avatar: 'not a potato',
-            intro: 'I dont  like to eat potatoes',
-            hasGarden: true,
-            availableTime: 5,
-            organic: false,
-            flowers: true,
-            tomatoes: true,
-            cucumbers: true,
-            sweetPeppers: true,
-            beans: true,
-            peas: true,
-            carrots: true,
-            squash: true,
-            lettuce: true,
-            watermelon: true,
-            onion: true,
-            sweetCorn: true,
-            cabbage: true,
-            potatoes: false,
-            radishes: true,
-            mint: false,
-            basil: true,
-            cilantro: true,
-            beets: true,
-            zucchini: true,
-            broccoli: true,
-            other: true,
-            theme: true
-        })
-    });
-    
-    
-}
+module.exports = UserProfiles;

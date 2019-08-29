@@ -1,48 +1,44 @@
-var Sequelize = require("sequelize");
+const Sequelize = require("sequelize");
+const sequelize = require("../config/connection.js");
 
-var db = require('./index'),
-    sequelize = db.sequelize;
-    Sequelize = db.Sequelize;
-
-module.exports = function(sequelize, DataType){
-    const Messages = sequelize.define('Messages', {
-        userInit: {
-            type: sequelize.INTEGER,
-            allowNull: false
-
-        },
-        userReceiving: {
-            type: sequelize.INTEGER,
-            allowNull: false
-
-        },
-        message: {
-            type: sequelize.TEXT,
-            allowNull: false
-
-        }
+const Messages = sequelize.define('Messages', {
+    userInit: {
+        type: Sequelize.INTEGER,
+        allowNull: false
 
     },
-        {
-            freezeTableName: true
-        });
+    userReceiving: {
+        type: Sequelize.INTEGER,
+        allowNull: false
 
-    Messages.sync().then(()=>{
-        Messages.create({
-            userInit: 1,
-            userReceiving: 2,
-            message: "hi bob how are you?"
-        })
-        Messages.create({
-            userInit: 2,
-            userReceiving: 1,
-            message: "pretty good, how do I eat a potato?"
-        })
-        Messages.create({
-            userInit: 1,
-            userReceiving: 3,
-            message: "Bob is a bit weird."
-        })
+    },
+    message: {
+        type: Sequelize.TEXT,
+        allowNull: false
+
+    }
+
+},
+    {
+        freezeTableName: true
     });
 
-};
+Messages.sync().then(()=>{
+Messages.create({
+    userInit: 1,
+    userReceiving: 2,
+    message: "hi bob how are you?"
+})
+Messages.create({
+    userInit: 2,
+    userReceiving: 1,
+    message: "pretty good, how do I eat a potato?"
+})
+Messages.create({
+    userInit: 1,
+    userReceiving: 3,
+    message: "Bob is a bit weird."
+})
+});
+
+module.exports = Messages;
