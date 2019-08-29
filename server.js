@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var app = express();
 var db = require("./models/index");
 
-var PORT = 80;
+var PORT = (process.env.PORT || 3000);
 console.log;
 
 
